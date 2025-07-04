@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Баксометр — контроль твоих денег.",
+  "name": "Умный трекер доходов и расходов с удобным интерфейсом и полной статистикой",
   "icons": [
     {
       "src": "favicon.ico",

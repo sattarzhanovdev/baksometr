@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.jsx
+import { useState } from "react";
+import Home from "./pages/Home";
+import AddTransactionPage from "./pages/AddTransactionPage";
+import BottomNavigation from "./components/BottomNavigation";
+import axios from "axios";
+
+axios.defaults.baseURL = 'https://baksometr.pythonanywhere.com/api/'
 
 function App() {
+  const [page, setPage] = useState("home");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="min-h-screen bg-black text-white flex flex-col">
+      {page === "home" && <Home />}
+      {page === "add" && <AddTransactionPage onBack={() => setPage("home")} />}
+
+      <BottomNavigation current={page} onNavigate={setPage} />
     </div>
   );
 }
